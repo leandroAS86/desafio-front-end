@@ -4,12 +4,14 @@ import {FormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
+import { HashSignComponent } from './hash-sign/hash-sign.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerComponent
+    PlayerComponent,
+    HashSignComponent
   ],
   imports: [
     BrowserModule,

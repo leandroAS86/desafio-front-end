@@ -1,0 +1,16 @@
+#jogo{
+    align-self: center;
+    width:303px;
+    height:300px;
+    border:solid 3px
+}
+.linha{
+    height:100px;
+    border-bottom:solid 1px;
+}
+.casa{
+    width:100px;
+    height:100%;
+    border-right:solid 1px;
+    float:left;
+}
