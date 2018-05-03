@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
 import { HashSignComponent } from './hash-sign/hash-sign.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HashSignComponent } from './hash-sign/hash-sign.component';
   imports: [
     BrowserModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
