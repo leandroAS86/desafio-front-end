@@ -12,18 +12,24 @@ import {Player} from '../player';
 export class PlayerComponent implements OnInit {
 
   constructor() { }
-  
-  formdata;
-  player_1;
-  player_2;
+  PLAYER: Player [];
+  formData: FormGroup;
+  player_1: FormControl;
+  player_2: FormControl;
+  playerInit: number;
+  setHashSign: boolean;
 
   onFormSubmit(data) {
-    this.player_1 = data.player_1;
-    this.player_2 = data.player_2;
+    this.PLAYER = [
+      {id: 1, color: '#0000ff', name: data.player_1},
+      {id: 2, color: '#ff0000', name: data.player_2}
+    ]
+    this.playerInit = Math.floor(Math.random() * 2);
+    this.setHashSign = true;
   }
 
-  ngOnInit() {
-    this.formdata = new FormGroup({
+  ngOnInit(): void{
+    this.formData = new FormGroup({
       player_1: new FormControl("", Validators.compose([
          Validators.required,
       ])),
