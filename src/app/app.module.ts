@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
 import { HashSignComponent } from './hash-sign/hash-sign.component';
 import { AppRoutingModule } from './/app-routing.module';
-
 
 @NgModule({
   declarations: [
@@ -16,7 +15,7 @@ import { AppRoutingModule } from './/app-routing.module';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
     AppRoutingModule
   ],
