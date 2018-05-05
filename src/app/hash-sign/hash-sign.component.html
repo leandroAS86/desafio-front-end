@@ -1,52 +1,28 @@
-<body>
-    <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="section group">
-                        <div class="col span_1_of_3"> </div>
-                        <div class="col span_1_of_3"></div>
-                        <div class="col span_1_of_3"></div>
-                    </div>
-                    
-                    <div class="section group">
-                        <div class="col span_1_of_3"> </div>
-                        <div class="col span_1_of_3"></div>
-                        <div class="col span_1_of_3"></div>    
-                    </div>
-                    
-                    <div class="section group">
-                        <div class="col span_1_of_3"> </div>
-                        <div class="col span_1_of_3"></div>
-                        <div class="col span_1_of_3"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</body>
 
-
-<!--
-
-    <body>
-    <div class="container-fluid">
-        <div id="jogo">
-            <div class="linha">
-                <div class="casa" id="casa1"></div>
-                <div class="casa" id="casa2"></div>
-                <div class="casa" id="casa3"></div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="section group">
+                <div class="col span_1_of_3" id="cell1" (click)="cellFunction($event)"></div>
+                <div class="col span_1_of_3" id="cell2" (click)="cellFunction($event)"></div>
+                <div class="col span_1_of_3" id="cell3" (click)="cellFunction($event)"></div>
             </div>
-            <div class="linha">
-                <div class="casa" id="casa4"></div>
-                <div class="casa" id="casa5"></div>
-                <div class="casa" id="casa6"></div>
+            
+            <div class="section group">
+                <div class="col span_1_of_3" id="cell4" (click)="cellFunction($event)"></div>
+                <div class="col span_1_of_3" id="cell5" (click)="cellFunction($event)"></div>
+                <div class="col span_1_of_3" id="cell6" (click)="cellFunction($event)"></div>    
             </div>
-            <div class="linha">
-                <div class="casa" id="casa7"></div>
-                <div class="casa" id="casa8"></div>
-                <div class="casa" id="casa9"></div>
+            
+            <div class="section group">
+                <div class="col span_1_of_3" id="cell7" (click)="cellFunction($event)"></div>
+                <div class="col span_1_of_3" id="cell8" (click)="cellFunction($event)"></div>
+                <div class="col span_1_of_3" id="cell9" (click)="cellFunction($event)"></div>
             </div>
         </div>
     </div>
-</body>
+</div>
 
--->
+<p>
+    {{evt}}<br>
+</p>

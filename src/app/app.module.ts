@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
 import { HashSignComponent } from './hash-sign/hash-sign.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { PlayerService } from './player.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { AppRoutingModule } from './/app-routing.module';
     NgbModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    PlayerService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {Player} from '../player';
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-player',
@@ -11,24 +12,23 @@ import {Player} from '../player';
 })
 export class PlayerComponent implements OnInit {
 
-  constructor() { }
-  PLAYER: Player [];
+  constructor(private playerService: PlayerService) { }
+  players: Player[];
   formData: FormGroup;
   player_1: FormControl;
   player_2: FormControl;
-  playerInit: number;
-  setHashSign: boolean;
-
-  onFormSubmit(data) {
-    this.PLAYER = [
-      {id: 1, color: '#0000ff', name: data.player_1},
-      {id: 2, color: '#ff0000', name: data.player_2}
-    ]
-    this.playerInit = Math.floor(Math.random() * 2);
-    this.setHashSign = true;
+  showHashSign: boolean;
+  PLAYER: string[] = [];
+  
+  onFormSubmit(data): void {
+    this.PLAYER.push(data.player_1);
+    this.PLAYER.push(data.player_2);
+    this.showHashSign = true;
+    this.setPlayer();
+    this.getPlayer();
   }
 
-  ngOnInit(): void{
+  formValidator(): void{
     this.formData = new FormGroup({
       player_1: new FormControl("", Validators.compose([
          Validators.required,
@@ -37,5 +37,18 @@ export class PlayerComponent implements OnInit {
         Validators.required,
       ])),
     });
+    
+  }
+
+  setPlayer(): void{
+    this.playerService.initPlayer(this.PLAYER);
+  }
+
+  getPlayer():void{
+    alert(this.playerService.getPlayer().subscribe(players => this.players = players));
+  }
+
+  ngOnInit(): void{
+    this.formValidator();
   }
 }

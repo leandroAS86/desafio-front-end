@@ -9,6 +9,12 @@ export class HashSignComponent implements OnInit {
 
   constructor() { }
 
+  evt: string;
+
+  cellFunction(event){
+    this.evt = 'cell click';
+  }
+
   ngOnInit() {
   }
 
