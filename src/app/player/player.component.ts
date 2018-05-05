@@ -25,7 +25,7 @@ export class PlayerComponent implements OnInit {
     this.PLAYER.push(data.player_2);
     this.showHashSign = true;
     this.setPlayer();
-    this.getPlayer();
+    //this.getPlayer();
   }
 
   formValidator(): void{
@@ -45,7 +45,7 @@ export class PlayerComponent implements OnInit {
   }
 
   getPlayer():void{
-    alert(this.playerService.getPlayer().subscribe(players => this.players = players));
+    this.playerService.getPlayer().subscribe(players => this.players = players);
   }
 
   ngOnInit(): void{

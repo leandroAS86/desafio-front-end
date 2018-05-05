@@ -23,11 +23,15 @@ export class PlayerService {
     if(this.playerInit == 0){
       this.PLAYER[0].time = 1;              //esse jogador devera iniciar a primeira partida
       this.PLAYER[0].letter = 'X';
+      this.PLAYER[0].color = '#ff0000';
+      this.PLAYER[1].color = '#0000ff';
       this.PLAYER[1].letter = 'O';
     }
     else {
       this.PLAYER[1].time = 1;              //esse jogador devera iniciar a primeira partida
       this.PLAYER[1].letter = 'X';
+      this.PLAYER[0].color = '#ff0000'
+      this.PLAYER[1].color = '#0000ff'
       this.PLAYER[0].letter = 'O';
     }
     
