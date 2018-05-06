@@ -9,7 +9,9 @@
 .col {
 	display: block;
     float:left;
-    background-color: #eee;
+	background-color: #eee;
+	font-size: 450%;
+	text-align: center;
     height:100px;
 	margin: 1% 0 1% 1.6%;
 }

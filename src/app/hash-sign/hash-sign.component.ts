@@ -15,20 +15,30 @@ export class HashSignComponent implements OnInit {
 
   evt: string;
   cell: HTMLElement;
-  index: number;
+  time: string;
 
   cellFunction(id){
+    this.time = this.getTime(this.player);
+    this.playerService.setPlayerTime();
     this.cell = document.getElementById(id);
-    this.cell.innerHTML = this.player[0].letter;
-    this.cell.style.backgroundColor = this.player[0].color;
+    this.cell.innerHTML = this.player[this.time].letter;
+    this.cell.style.color = this.player[this.time].color;
   }
 
   getPlayer():void{
     this.playerService.getPlayer().subscribe(player => this.player = player);
   }
 
+  getTime(arr): string{
+    for (var key in arr) {
+      if(arr[key].time == "1"){
+        return key;
+      }     
+    }
+    return '-1';
+  }
+
   ngOnInit() {
     this.getPlayer();
   }
-
 }
