@@ -18,14 +18,17 @@ export class HashSignComponent implements OnInit {
   time: string;
 
   cellFunction(id){
-    this.time = this.getTime(this.player);                  //obtem qual jogador esta na vez
-    this.playerService.setPlayerTime();                     //passa a vez para o proximo jogador
-
     this.cell = document.getElementById(id);
-    this.cell.innerHTML = this.player[this.time].letter;
-    this.cell.style.color = this.player[this.time].color;
+    if(this.cell.textContent == ''){
 
-    this.endOfGame();
+      this.time = this.getTime(this.player);                  //obtem qual jogador esta na vez
+      this.playerService.setPlayerTime();                     //passa a vez para o proximo jogador
+  
+      this.cell.innerHTML = this.player[this.time].letter;
+      this.cell.style.color = this.player[this.time].color;
+  
+      this.endOfGame();
+    };
   }
 
   getPlayer():void{
