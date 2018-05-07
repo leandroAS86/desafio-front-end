@@ -5,5 +5,6 @@ export class Player{
         public name: string,
         public color: string,
         public letter: string,
+        public points: number,
     ){}
 }

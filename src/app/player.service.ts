@@ -15,7 +15,7 @@ export class PlayerService {
   initPlayer(player: string[]): void{ 
 
     for(var i = 0; i < player.length; i++){
-      this.PLAYER[i] = {id: i, time: '0', name: player[i], color: '', letter:''}
+      this.PLAYER[i] = {id: i, time: '0', name: player[i], color: '', letter:'', points: 0}
     }
     
     this.playerInit = Math.floor(Math.random() * 2);
@@ -45,6 +45,10 @@ export class PlayerService {
       this.PLAYER[0].time = '1';
       this.PLAYER[1].time = '0';
     }
+  }
+
+  setPoints(playerIndex: string): void{
+    this.PLAYER[playerIndex].points ++;  
   }
   
   getPlayer(): Observable<Player[]> {  

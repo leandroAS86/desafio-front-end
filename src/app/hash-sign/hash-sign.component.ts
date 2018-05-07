@@ -70,14 +70,16 @@ export class HashSignComponent implements OnInit {
       if(cellA == 'X'){
         for(var key in this.player){
           if(this.player[key].letter == 'X'){
-            alert('vencedor nome: ' + this.player[key].name + ' letra: ' + this.player[key].letter);
+            this.playerService.setPoints(key);
+            alert('vencedor nome: ' + this.player[key].name + ' letra: ' + this.player[key].letter + ' Pontos: ' + this.player[key].points);
           }
         }
       }  
       else{
         for(var key in this.player){
           if(this.player[key].letter == 'O'){
-            alert('vencedor nome: ' + this.player[key].name + ' letra: ' + this.player[key].letter);
+            this.playerService.setPoints(key);
+            alert('vencedor nome: ' + this.player[key].name + ' letra: ' + this.player[key].letter + ' Pontos: ' + this.player[key].points);
           }
         }
       }        
