@@ -4,7 +4,8 @@ import { HashSignComponent } from './hash-sign/hash-sign.component';
 import { PlayerComponent } from './player/player.component';
 
 const routes: Routes = [
-  //{ path: 'app-hash-sign', component: HashSignComponent },
+  //{ path: '', redirectTo: '/app-player', pathMatch: 'full' },
+  { path: 'app-hash-sign', component: HashSignComponent },
   { path: 'app-player', component: PlayerComponent },
 ];
 

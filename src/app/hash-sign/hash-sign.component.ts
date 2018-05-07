@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 import {Player} from '../player';
 import { PlayerService } from '../player.service';
@@ -11,7 +13,12 @@ import { PlayerService } from '../player.service';
 export class HashSignComponent implements OnInit {
 
   @Input() player: Player[];
-  constructor(private playerService: PlayerService) { }
+  constructor(
+      private playerService: PlayerService,
+      private route: ActivatedRoute,
+      private router : Router,
+      private location: Location
+    ) { }
 
   evt: string;
   cell: HTMLElement;
@@ -78,6 +85,15 @@ export class HashSignComponent implements OnInit {
     }
     else
       return false;
+  }
+
+  cleanHash(): void{
+    for(var i = 1; i <= 9; i++){
+      this.cell = document.getElementById('cell'+i);
+      if(this.cell.textContent != null){
+        this.cell.innerHTML = '';
+      }
+    }
   }
 
   ngOnInit() {
