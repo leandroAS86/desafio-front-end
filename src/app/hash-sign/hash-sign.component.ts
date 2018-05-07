@@ -21,21 +21,24 @@ export class HashSignComponent implements OnInit {
     ) { }
 
   evt: string;
-  cell: HTMLElement;
   time: string;
-
+  hasWinner: boolean = false;
+  cell: HTMLElement;
+  
   cellFunction(id){
     this.cell = document.getElementById(id);
-    if(this.cell.textContent == ''){
+    if(!this.hasWinner){
+      if(this.cell.textContent == ''){
 
-      this.time = this.getTime(this.player);                  //obtem qual jogador esta na vez
-      this.playerService.setPlayerTime();                     //passa a vez para o proximo jogador
-  
-      this.cell.innerHTML = this.player[this.time].letter;
-      this.cell.style.color = this.player[this.time].color;
-  
-      this.endOfGame();
-    };
+        this.time = this.getTime(this.player);                  //obtem qual jogador esta na vez
+        this.playerService.setPlayerTime();                     //passa a vez para o proximo jogador
+    
+        this.cell.innerHTML = this.player[this.time].letter;
+        this.cell.style.color = this.player[this.time].color;
+    
+        this.endOfGame();
+      };
+    }
   }
 
   getPlayer():void{
@@ -71,6 +74,9 @@ export class HashSignComponent implements OnInit {
         for(var key in this.player){
           if(this.player[key].letter == 'X'){
             this.playerService.setPoints(key);
+
+            this.hasWinner = true;
+
             alert('vencedor nome: ' + this.player[key].name + ' letra: ' + this.player[key].letter + ' Pontos: ' + this.player[key].points);
           }
         }
@@ -79,6 +85,9 @@ export class HashSignComponent implements OnInit {
         for(var key in this.player){
           if(this.player[key].letter == 'O'){
             this.playerService.setPoints(key);
+
+            this.hasWinner = true;
+
             alert('vencedor nome: ' + this.player[key].name + ' letra: ' + this.player[key].letter + ' Pontos: ' + this.player[key].points);
           }
         }
@@ -96,6 +105,7 @@ export class HashSignComponent implements OnInit {
         this.cell.innerHTML = '';
       }
     }
+    this.hasWinner = false;
   }
 
   ngOnInit() {
