@@ -74,10 +74,7 @@ export class HashSignComponent implements OnInit {
         for(var key in this.player){
           if(this.player[key].letter == 'X'){
             this.playerService.setPoints(key);
-
             this.hasWinner = true;
-
-            alert('vencedor nome: ' + this.player[key].name + ' letra: ' + this.player[key].letter + ' Pontos: ' + this.player[key].points);
           }
         }
       }  
@@ -85,10 +82,7 @@ export class HashSignComponent implements OnInit {
         for(var key in this.player){
           if(this.player[key].letter == 'O'){
             this.playerService.setPoints(key);
-
             this.hasWinner = true;
-
-            alert('vencedor nome: ' + this.player[key].name + ' letra: ' + this.player[key].letter + ' Pontos: ' + this.player[key].points);
           }
         }
       }        

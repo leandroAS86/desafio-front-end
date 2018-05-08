@@ -8,12 +8,15 @@ import { PlayerComponent } from './player/player.component';
 import { HashSignComponent } from './hash-sign/hash-sign.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { PlayerService } from './player.service';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    HashSignComponent
+    HashSignComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ import { PlayerService } from './player.service';
   ],
   providers: [
     PlayerService,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

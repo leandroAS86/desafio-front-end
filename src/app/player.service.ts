@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
+
+import { MessageService } from './message.service';
 import { Player } from './player';
 
 @Injectable()
 export class PlayerService {
 
-  constructor() { }
+  constructor(
+    private messageService: MessageService
+  ) { }
 
   PLAYER: Player [] = [];
   
@@ -48,7 +52,11 @@ export class PlayerService {
   }
 
   setPoints(playerIndex: string): void{
-    this.PLAYER[playerIndex].points ++;  
+    this.PLAYER[playerIndex].points ++;
+    this.messageService.clear();
+    this.messageService.add(
+      'vencedor nome: ' + this.PLAYER[playerIndex].name + ' letra: '+ this.PLAYER[playerIndex].letter + ' Pontos: ' + this.PLAYER[playerIndex].points
+    ); 
   }
   
   getPlayer(): Observable<Player[]> {  
