@@ -17,7 +17,7 @@ export class PlayerComponent implements OnInit {
   player_2: FormControl;
   PLAYER: string[] = [];
   
-  onFormSubmit(data): void {
+  onFormSubmit(data){
     this.PLAYER.push(data.player_1);
     this.PLAYER.push(data.player_2);
     this.setPlayer();
@@ -32,7 +32,6 @@ export class PlayerComponent implements OnInit {
         Validators.required,
       ])),
     });
-    
   }
 
   setPlayer(): void{
