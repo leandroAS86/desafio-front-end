@@ -1,6 +1,14 @@
-<div *ngIf="messageService.messages.length">
 
-  <h2>Messages</h2>
-  <div *ngFor='let message of messageService.messages'> {{message}} </div>
-
+<div class="row justify-content-between">
+  <div *ngIf="messageService.messages_player1.length"> 
+    <div class="alert alert-danger">
+      <div *ngFor='let msg_ply1 of messageService.messages_player1'> {{msg_ply1}} </div>
+    </div>
+  </div>
+  
+  <div *ngIf="messageService.messages_player2.length">
+    <div class="alert alert-primary">
+      <div *ngFor='let msg_ply2 of messageService.messages_player2'> {{msg_ply2}} </div>
+    </div>
+  </div>
 </div>

@@ -4,6 +4,7 @@ import {of} from 'rxjs/observable/of';
 
 import { MessageService } from './message.service';
 import { Player } from './player';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class PlayerService {
@@ -34,10 +35,18 @@ export class PlayerService {
     else {
       this.PLAYER[1].time = '1';              //esse jogador devera iniciar a primeira partida
       this.PLAYER[1].letter = 'X';
-      this.PLAYER[0].color = '#ff0000'
-      this.PLAYER[1].color = '#0000ff'
+      this.PLAYER[1].color = '#ff0000'
+      this.PLAYER[0].color = '#0000ff'
       this.PLAYER[0].letter = 'O';
+    };
+
+    for(var key in this.PLAYER){
+      this.messageService.add(
+        'Jogador: ' + this.PLAYER[key].name + ' Letra: '+ this.PLAYER[key].letter + ' Pontos: ' + this.PLAYER[key].points,
+        this.PLAYER[key].letter
+      ); 
     }
+    
   }
 
   setPlayerTime(): void{
@@ -53,9 +62,10 @@ export class PlayerService {
 
   setPoints(playerIndex: string): void{
     this.PLAYER[playerIndex].points ++;
-    this.messageService.clear();
+    this.messageService.clear(this.PLAYER[playerIndex].letter);
     this.messageService.add(
-      'vencedor nome: ' + this.PLAYER[playerIndex].name + ' letra: '+ this.PLAYER[playerIndex].letter + ' Pontos: ' + this.PLAYER[playerIndex].points
+      'Jogador: ' + this.PLAYER[playerIndex].name + ' Letra: '+ this.PLAYER[playerIndex].letter + ' Pontos: ' + this.PLAYER[playerIndex].points,
+      this.PLAYER[playerIndex].letter
     ); 
   }
   

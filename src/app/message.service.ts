@@ -5,14 +5,24 @@ export class MessageService {
 
   constructor() { }
 
-  messages: string[] = [];
+  messages_player1: string[] = [];
+  messages_player2: string[] = [];
  
-  add(message: string) {
-    this.messages.push(message);
+  add(message: string, arr: string) {
+    if(arr == 'X'){
+      this.messages_player1.push(message);
+    }
+    if(arr == 'O'){
+      this.messages_player2.push(message);
+    }
   }
  
-  clear() {
-    this.messages = [];
+  clear(arr: string) {
+    if(arr == 'X'){
+      this.messages_player1 = [];
+    }
+    if(arr == 'O'){
+      this.messages_player2 = [];
+    }
   }
-
 }
