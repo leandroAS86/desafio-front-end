@@ -7,5 +7,5 @@ import { PlayerService } from './player.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Game Desafio Celero';
+  title = 'Game Jogo da Velha Angular 4';
 }
