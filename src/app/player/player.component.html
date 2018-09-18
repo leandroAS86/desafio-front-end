@@ -1,5 +1,5 @@
 <div>
-    <form [formGroup] = "formData" (ngSubmit) = "onFormSubmit(formData.value)" >
+    <form [hidden] = "submitted" [formGroup] = "formData" (ngSubmit) = "onFormSubmit(formData.value)" >
         <div class="row justify-content-center">
             <div class="form-group col-sm-6">
                 <label for="player_1"> Nome Jogador 1: </label>
@@ -17,7 +17,6 @@
                 <input 
                     type = "submit" [disabled] = "!formData.valid" 
                     class="form-control btn btn-primary forsubmit" 
-                    routerLink="/app-hash-sign"
                     value="Iniciar">
             </div> 
         </div>   

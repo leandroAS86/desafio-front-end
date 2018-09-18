@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms'
 import {Player} from '../player';
 import { PlayerService } from '../player.service';
@@ -10,17 +11,25 @@ import { PlayerService } from '../player.service';
 })
 export class PlayerComponent implements OnInit {
 
-  constructor(private playerService: PlayerService) { }
-  players: Player[];
+  constructor(private playerService: PlayerService, private router: Router) { }
+
   formData: FormGroup;
-  player_1: FormControl;
-  player_2: FormControl;
   PLAYER: string[] = [];
   
+   submitted = false;
+
   onFormSubmit(data){
+    this.submitted = true;
     this.PLAYER.push(data.player_1);
     this.PLAYER.push(data.player_2);
+
     this.setPlayer();
+
+    this.router.navigate(['/', 'app-hash-sign']).then(nav => {
+        console.log(nav); // true if navigation is successful
+      }, err => {
+        console.log(err) // when there's an error
+      });
   }
 
   formValidator(): void{
@@ -38,9 +47,9 @@ export class PlayerComponent implements OnInit {
     this.playerService.initPlayer(this.PLAYER);
   }
 
-  getPlayer():void{
-    this.playerService.getPlayer().subscribe(players => this.players = players);
-  }
+  // getPlayer():void{
+  //   this.playerService.getPlayer().subscribe(players => this.players = players);
+  // }
 
   ngOnInit(): void{
     this.formValidator();
