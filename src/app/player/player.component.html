@@ -2,12 +2,12 @@
     <form [hidden] = "submitted" [formGroup] = "formData" (ngSubmit) = "onFormSubmit(formData.value)" >
         <div class="row justify-content-center">
             <div class="form-group col-sm-6">
-                <label for="player_1"> Nome Jogador 1: </label>
+                <label for="player_1"> Nome Jogador 1: {{ formData.get('player_1').value }}</label>
                 <input formControlName = "player_1" type="text" class="form-control" name="player_1" id="player_1" placeholder="Nome">    
             </div>
             
             <div class="form-group col-sm-6">
-                <label for="player_2"> Nome Jogador 2: </label>
+                <label for="player_2"> Nome Jogador 2: {{ formData.get('player_2').value }}</label>
                 <input formControlName = "player_2" type="text" class="form-control" name="player_2" id="player_2" placeholder="Nome">       
             </div>    
         </div> 

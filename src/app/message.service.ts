@@ -25,4 +25,9 @@ export class MessageService {
       this.messages_player2 = [];
     }
   }
+
+  clearAll(){
+    this.messages_player1 = [];
+    this.messages_player2 = [];
+  }
 }

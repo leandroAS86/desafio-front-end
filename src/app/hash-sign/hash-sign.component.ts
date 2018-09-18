@@ -2,8 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
-import {Player} from '../player';
+import { Player } from '../player';
 import { PlayerService } from '../player.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-hash-sign',
@@ -15,6 +16,7 @@ export class HashSignComponent implements OnInit {
   @Input() player: Player[];
   constructor(
       private playerService: PlayerService,
+      private messageService: MessageService,
       private route: ActivatedRoute,
       private router : Router,
       private location: Location
@@ -100,6 +102,11 @@ export class HashSignComponent implements OnInit {
       }
     }
     this.hasWinner = false;
+  }
+
+  goBack(): void {
+    this.messageService.clearAll();
+    this.location.back();
   }
 
   ngOnInit() {

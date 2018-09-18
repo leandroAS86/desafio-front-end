@@ -46,11 +46,7 @@ export class PlayerComponent implements OnInit {
   setPlayer(): void{
     this.playerService.initPlayer(this.PLAYER);
   }
-
-  // getPlayer():void{
-  //   this.playerService.getPlayer().subscribe(players => this.players = players);
-  // }
-
+  
   ngOnInit(): void{
     this.formValidator();
   }
